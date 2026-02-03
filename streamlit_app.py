@@ -11,18 +11,18 @@ hide_st_style = """
             <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
             
-            /* 전체 폰트 및 기본 컬러 설정 */
+            /* 1. 글로벌 폰트 & 색상 강제 통일 */
             html, body, [class*="css"]  {
                 font-family: 'Noto Sans KR', sans-serif;
                 color: #ffffff !important;
             }
             
-            /* 1. 메인 배경색 */
+            /* 2. 메인 배경 */
             .stApp {
                 background-color: #1a1a1a;
             }
             
-            /* 2. 입력창(숫자) 스타일 */
+            /* 3. 입력창 스타일 */
             .stNumberInput input {
                 background-color: #333333 !important;
                 color: #ffffff !important;
@@ -30,19 +30,39 @@ hide_st_style = """
                 border: 1px solid #555555;
             }
             
-            /* 3. 라벨 제목 (일당, 공수 등 큰 제목) */
+            /* 4. 각종 라벨 & 선택지 글씨 */
             .stNumberInput label, .stRadio label, .stCheckbox label {
                 color: #ffffff !important;
                 font-weight: bold;
             }
-            
-            /* ★★★ 4. 여기가 핵심! 라디오 버튼 & 체크박스 옆 작은 글씨 강제 화이트 ★★★ */
-            .stRadio p, .stCheckbox p {
+            .stRadio p, .stCheckbox p { /* 라디오 버튼 옆 글씨 */
                 color: #ffffff !important;
-                font-weight: 500;
+            }
+
+            /* ★★★ 5. 결과 박스 내부 글씨 (여기가 핵심!) ★★★ */
+            .result-box p, .result-box span {
+                color: #ffffff !important; /* 무조건 흰색 */
+            }
+            .sub-text {
+                color: #dddddd !important; /* 살짝 연한 흰색 */
             }
             
-            /* 5. 버튼 스타일 */
+            /* ★★★ 6. "자세히 보기" (Expander) 내부 글씨 ★★★ */
+            .streamlit-expanderHeader {
+                color: #ffffff !important;
+                background-color: #333333 !important; /* 헤더 배경도 살짝 밝게 */
+            }
+            .streamlit-expanderContent p, .streamlit-expanderContent div {
+                color: #cccccc !important; /* 내부는 가독성 위해 살짝 밝은 회색 */
+            }
+            
+            /* 7. 맨 아래 '참고' 박스 (Info Box) */
+            .stAlert {
+                background-color: #222222 !important;
+                color: #ffffff !important;
+            }
+            
+            /* 8. 버튼 스타일 */
             div.stButton > button {
                 background-color: #0085ff;
                 color: white;
@@ -59,12 +79,12 @@ hide_st_style = """
                 border: 2px solid #ffffff;
             }
             
-            /* 6. 불필요한 요소 숨기기 */
+            /* 9. 불필요 요소 숨김 */
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             
-            /* 7. 결과 박스 */
+            /* 10. 결과 박스 디자인 */
             .result-box {
                 background-color: #262626;
                 padding: 20px;
