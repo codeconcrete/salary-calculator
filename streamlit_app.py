@@ -9,40 +9,61 @@ st.set_page_config(page_title="건설 일용직 실수령액 계산기", page_ic
 # 커스텀 CSS (BuildTech 스타일)
 hide_st_style = """
             <style>
-            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
             
             html, body, [class*="css"]  {
-            font-family: 'Noto Sans KR', sans-serif;
+                font-family: 'Noto Sans KR', sans-serif;
+                color: #ffffff !important; /* 기본 글씨 무조건 흰색 */
             }
             
-            /* 메인 배경색 */
+            /* 1. 메인 배경색 - 진한 곤색 */
             .stApp {
                 background-color: #1a1a1a;
-                color: #ffffff;
             }
             
-            /* 입력창 스타일 */
+            /* 2. 입력창(숫자 적는 곳) 밝게 */
             .stNumberInput input {
                 background-color: #333333 !important;
-                color: white !important;
+                color: #ffffff !important; /* 입력 숫자 흰색 */
+                font-weight: bold;
+                border: 1px solid #555555;
             }
             
-            /* 버튼 스타일 */
+            /* 3. 라벨(일당, 공수 등 제목) 밝게 */
+            .stNumberInput label, .stRadio label, .stCheckbox label {
+                color: #ffffff !important;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            
+            /* 4. 라디오 버튼 선택 항목 */
+            .stRadio div[role='radiogroup'] > label {
+                color: #ffffff !important;
+            }
+            
+            /* 5. 버튼 스타일 (네온 블루) */
             div.stButton > button {
                 background-color: #0085ff;
                 color: white;
                 border: none;
                 border-radius: 8px;
+                font-size: 18px;
                 font-weight: bold;
                 width: 100%;
-                padding: 10px;
+                padding: 12px;
+                margin-top: 10px;
             }
             div.stButton > button:hover {
                 background-color: #0066cc;
-                border: 1px solid #ffffff;
+                border: 2px solid #ffffff;
             }
             
-            /* 결과 박스 스타일 */
+            /* 6. 불필요한 헤더 숨기기 */
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            
+            /* 7. 결과 박스 스타일 */
             .result-box {
                 background-color: #262626;
                 padding: 20px;
@@ -50,20 +71,6 @@ hide_st_style = """
                 border-left: 5px solid #0085ff;
                 margin-top: 20px;
             }
-            .big-font {
-                font-size: 24px !important;
-                font-weight: bold;
-                color: #0085ff;
-            }
-            .sub-text {
-                font-size: 14px;
-                color: #cccccc;
-            }
-            
-            /* 헤더 등 불필요한 요소 숨기기 */
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
